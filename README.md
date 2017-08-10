@@ -165,3 +165,6 @@ The data for the products CSV file consists of:
 
 | Field          | Type    | Description
 |----------------|---------|------------
+| Order ID | Integer | A unique identifier corresponding to an Order
+| Product ID   | Integer | A unique identifier corresponding to an Product
+| Customer ID | Integer | A unique identifier corresponding to a Customer
