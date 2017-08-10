@@ -159,8 +159,8 @@ Each new OnlineOrder should include the following attributes:
 
 It should include the following updated functionality:
 - The `total` method should be the same, except it will add a $10 shipping fee
-- The `add_product` method should be updated to permit a new product to be added if the status is either pending or paid
-  - Otherwise, it should throw an `ArgumentError` (Google this!)
+- The `add_product` method should be updated to permit a new product to be added **ONLY** if the status is either pending or paid (no other statuses permitted)
+  - Otherwise, it should raise an `ArgumentError` (Google this!)
 
 #### CSV Data File
 The data for the products CSV file consists of:
