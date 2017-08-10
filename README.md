@@ -9,7 +9,7 @@ This project will allow you to explore object-oriented design as well as a few o
 1. This is an individual, stage 1 project.
 1. Fork the project master.
 1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
-1. `cd` into the dir create:d `$ cd BankAccounts`
+1. `cd` into the dir created `$ cd grocery-store`
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.
 1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
 
@@ -37,30 +37,27 @@ For wave 1, all tests will be given to you - your job is to write code to make t
 
 ### Requirements
 
-Create a `Grocery` module which will contain your `Order` class and any future grocery store logic.
+Create a `Grocery` module which will contain an `Order` class and any future grocery store logic.
 
 Create an `Order` class which should have the following functionality:
 - A new order should be created with:
-  - an ID
+  - an ID, read-only
   - a collection of products and their cost
-    - allow no products to start
-- A `total` method which will calculate the total cost of the order
-  - sum up the products
-  - add a 7.5% tax
+    - zero products is permitted
+- A `total` method which will calculate the total cost of the order by:
+  - summing up the products
+  - adding a 7.5% tax
 - An `add_product` method which will take in two parameters, product name and price, and add the data to the product collection
-- Access to the ID at any time
+  - It should return `true` if the item was succesfully added and `false` if it was not
 
-#### Error handling
-- Ensure the `total` method returns an appropriate value when no products have been added yet
 
 ### Optional:
 Make sure to write tests for any optionals you implement!
 
-- A `remove_product` method on the `Order` class which will take in one parameter, a product name, and remove the product from the collection
-
-- Create an `Product` class which will store the information about each product.
-  - Attributes like ID, price and quantity
-
+- Add a `remove_product` method to the `Order` class which will take in one parameter, a product name, and remove the product from the collection
+    - It should return `true` if the item was successfully remove and `false` if it was not
+- Create an new `Product` class in your `Grocery` module which will store the information about each product.
+  - Should include attributes like ID, price and quantity
 - Update the `Order` class to utilize objects from the `Product` class instead of the collection that is currently used
 
 ## Wave 2
@@ -71,14 +68,14 @@ Make sure to write tests for any optionals you implement!
 - Create your own tests to verify method correctness.
 
 ### Requirements
-- Update the `Order` class to be able to handle all of these fields from the CSV file used as input.
-  - For example, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your Order using that data
+- Update the `Order` class to be able to handle all of the fields from the CSV file used as input
+  - To try it out, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your `Order` using that data
 - Add the following **class** methods to your existing `Order` class
-  - `self.all` - returns a collection of `Order` instances, representing all of the Orders described in the CSV. See below for the CSV file specifications.
+  - `self.all` - returns a collection of `Order` instances, representing all of the Orders described in the CSV. See below for the CSV file specifications
   - `self.find(id)` - returns an instance of `Order` where the value of the id field in the CSV matches the passed parameter.
 
 #### Error Handling
-- what should your program do if `Order.find` is called with an ID that doesn't exist?
+- What should your program do if `Order.find` is called with an ID that doesn't exist?
 
 #### CSV Data File
 
@@ -97,15 +94,16 @@ Then, add the following **class** methods to your existing `Product` class
   - `self.find(id)` - returns an instance of `Product` where the value of the id field in the CSV matches the passed parameter
 
 #### CSV Data File
-The data, in order in the CSV, consists of:
+The data for the products CSV file consists of:
 
 | Field          | Type    | Description
 |----------------|---------|------------
 | ID             | Integer | A unique identifier for that Product
+| Description | String | The product description
 | Price      | Float  | The product's price
 | Quantity     | Integer  | The product's quantity
 
-To create the relationship between the orders and the products use the `order_products` CSV file. The data for this file, in order in the CSV, consists of:
+To create the relationship between the orders and the products use the `order_products` CSV file. When you use this file, you can ignore the product data in the existing order CSV file. The data for this file, in order in the CSV, consists of:
 
 | Field      | Type    | Description
 |------------|---------|------------
@@ -124,7 +122,7 @@ This type of table, where records from other tables are associated with each oth
 
 For wave 3, you will create two new classes: `Customer` and `OnlineOrder`.
 
- The `OnlineOrder` class will inherit behavior from the `Order` class and include additional information to track customers and order status. You will create the `Customer` class which will be used _within_ the `OnlineOrder` class.
+ The `OnlineOrder` class will inherit behavior from the `Order` class and include additional data to track the customer and order status. An **instance** of the `Customer` class will be used _within_ each **instance** of the `OnlineOrder` class.
 
 Each class should get its own file under the `lib/` directory, and each already has a spec file with stub tests.
 
@@ -132,6 +130,7 @@ Each class should get its own file under the `lib/` directory, and each already 
 Create a `Customer` class within the `Grocery` module.
 
 Each new Customer should include the following attributes:
+- ID
 - email address
 - delivery address information
 
