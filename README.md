@@ -134,6 +134,18 @@ Each new Customer should include the following attributes:
 - email address
 - delivery address information
 
+#### CSV Data File
+The data for the products CSV file consists of:
+
+| Field          | Type    | Description
+|----------------|---------|------------
+| Customer ID | Integer | A unique identifier corresponding to the Customer
+| Email   | String | The customer's e-mail address
+| Address 1 | String | The customer's street address
+| City |  String | The customer's city
+| State | String | The customer's state
+| Zip Code | String | The customer's zip code
+
 
 #### OnlineOrder
 Create an `OnlineOrder` class which will inherit behavior from the `Order` class.
@@ -147,3 +159,9 @@ It should include the following updated functionality:
 - The `total` method should be the same, except it will add a $10 shipping fee
 - The `add_product` method should be updated to permit a new product to be added if the status is either pending or paid
   - Otherwise, it should throw an `ArgumentError` (Google this!)
+
+#### CSV Data File
+The data for the products CSV file consists of:
+
+| Field          | Type    | Description
+|----------------|---------|------------
