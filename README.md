@@ -1,1 +1,172 @@
-# inheritance
+# Grocery Store
+
+Let's simulate a grocery store system! We want to be able to keep track of the orders that folks make, both online and physically in our grocery store.
+
+This project will allow you to explore object-oriented design as well as a few other new topics. This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
+
+## Baseline Setup
+
+1. Fork the project master.
+1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
+1. `cd` into the dir created `$ cd grocery-store`
+1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.  
+  If it is **correct** it will include "Ada-C8"  
+  If it is **incorrect** it will include "AdaGold"  
+1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
+
+### Testing
+
+This is our first project with real tests! Following the instructions from the [TDD lecture](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/intro-to-automated-tests.md), there are three things in our project directory:
+
+```
+Rakefile
+lib/
+specs/
+```
+
+Each class you write (there will only be one until wave 3) should get its own file, `lib/class_name.rb`. The specs for that class will be in `specs/class_name_spec.rb`, and you can run all specs using the `rake` command from your terminal.
+
+For wave 1, all tests will be given to you - your job is to write code to make them pass. For waves 2 and 3, we supply descriptions of the tests, but you have to write them yourself.
+
+## Wave 1
+
+### Learning Goals
+- Create a **class** inside of a **module**
+- Create **methods** inside the **class** to perform actions
+- Learn how Ruby does error handling
+- Verify code correctness by **testing**
+
+### Requirements
+
+Create a `Grocery` module which will contain an `Order` class and any future grocery store logic.
+
+Create an `Order` class which should have the following functionality:
+- A new order should be created with:
+  - an ID, read-only
+  - a collection of products and their cost
+    - zero products is permitted
+    - you can assume that there is **only one** of each product
+- A `total` method which will calculate the total cost of the order by:
+  - summing up the products
+  - adding a 7.5% tax
+- An `add_product` method which will take in two parameters, product name and price, and add the data to the product collection
+  - It should return `true` if the item was successfully added and `false` if it was not
+
+Throughout your progress on Wave 1, you should run the tests from the command line using the `rake` command on a regular basis.
+
+### Optional:
+Make sure to write tests for any optionals you implement!
+
+- Add a `remove_product` method to the `Order` class which will take in one parameter, a product name, and remove the product from the collection
+    - It should return `true` if the item was successfully remove and `false` if it was not
+- Create an new `Product` class in your `Grocery` module which will store the information about each product.
+  - Should include attributes like ID and price
+- Update the `Order` class to utilize objects from the `Product` class instead of the collection that is currently used
+
+## Wave 2
+
+### Learning Goals
+- Create and use class methods
+- Use a CSV file for loading data
+- Create your own tests to verify method correctness.
+
+### Requirements
+- Update the `Order` class to be able to handle all of the fields from the CSV file used as input
+  - To try it out, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your `Order` using that data
+- Add the following **class** methods to your existing `Order` class
+  - `self.all` - returns a collection of `Order` instances, representing all of the Orders described in the CSV. See below for the CSV file specifications
+  - `self.find(id)` - returns an instance of `Order` where the value of the id field in the CSV matches the passed parameter.
+
+#### Error Handling
+- What should your program do if `Order.find` is called with an ID that doesn't exist?
+
+#### CSV Data File
+
+The data, in order in the CSV, consists of:  
+
+| Field    | Type     | Description
+|----------|----------|------------
+| ID       | Integer  | A unique identifier for that Order
+| Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
+
+### Optional:
+First, implement the optional requirement from Wave 1
+
+Then, add the following **class** methods to your existing `Product` class
+  - `self.all` - returns a collection of `Product` instances, representing all of the Products described in the CSV. See below for the CSV file specifications
+  - `self.find(id)` - returns an instance of `Product` where the value of the id field in the CSV matches the passed parameter
+
+#### CSV Data File
+The data for the products CSV file consists of:
+
+| Field          | Type    | Description
+|----------------|---------|------------
+| ID             | Integer | A unique identifier for that Product
+| Description | String | The product description
+| Price      | Float  | The product's price
+
+To create the relationship between the orders and the products use the `order_products` CSV file. When you use this file, you can ignore the product data in the existing order CSV file. The data for this file, in order in the CSV, consists of:
+
+| Field      | Type    | Description
+|------------|---------|------------
+| Order ID | Integer | A unique identifier corresponding to an Order
+| Product ID   | Integer | A unique identifier corresponding to an Product
+
+This type of table, where records from other tables are associated with each other, is often called a _join table_. We'll talk about them as a class in a few weeks.
+
+## Wave 3
+### Learning Goals
+- Use inheritance to share some behavior across classes
+- Enhance functionality built in Wave 1
+- Add tests for all new classes and inherited functionality
+
+### Requirements
+
+For wave 3, you will create two new classes: `Customer` and `OnlineOrder`.
+
+ The `OnlineOrder` class will inherit behavior from the `Order` class and include additional data to track the customer and order status. An **instance** of the `Customer` class will be used _within_ each **instance** of the `OnlineOrder` class.
+
+Each class should get its own file under the `lib/` directory, and each already has a spec file with stub tests.
+
+#### Customer
+Create a `Customer` class within the `Grocery` module.
+
+Each new Customer should include the following attributes:
+- ID
+- email address
+- delivery address information
+
+#### CSV Data File
+The data for the products CSV file consists of:
+
+| Field          | Type    | Description
+|----------------|---------|------------
+| Customer ID | Integer | A unique identifier corresponding to the Customer
+| Email   | String | The customer's e-mail address
+| Address 1 | String | The customer's street address
+| City |  String | The customer's city
+| State | String | The customer's state
+| Zip Code | String | The customer's zip code
+
+
+#### OnlineOrder
+Create an `OnlineOrder` class which will inherit behavior from the `Order` class.
+
+Each new OnlineOrder should include the following attributes:
+- A customer object
+- A fulfillment status
+  - pending, paid, processing, shipped or complete
+
+It should include the following updated functionality:
+- The `total` method should be the same, except it will add a $10 shipping fee
+- The `add_product` method should be updated to permit a new product to be added **ONLY** if the status is either pending or paid (no other statuses permitted)
+  - Otherwise, it should raise an `ArgumentError` (Google this!)
+
+#### CSV Data File
+The data for the products CSV file consists of:
+
+| Field          | Type    | Description
+|----------------|---------|------------
+| Order ID | Integer | A unique identifier corresponding to an Order
+| Product ID   | Integer | A unique identifier corresponding to an Product
+| Customer ID | Integer | A unique identifier corresponding to a Customer
