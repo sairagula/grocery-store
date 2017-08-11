@@ -45,13 +45,14 @@ Create an `Order` class which should have the following functionality:
   - an ID, read-only
   - a collection of products and their cost
     - zero products is permitted
+    - you can assume that there is **only one** of each product
 - A `total` method which will calculate the total cost of the order by:
   - summing up the products
   - adding a 7.5% tax
 - An `add_product` method which will take in two parameters, product name and price, and add the data to the product collection
   - It should return `true` if the item was successfully added and `false` if it was not
 
-Throughout your progress on Wave 1, you should run the tests from the command line using the `rake` command on a regular basis. 
+Throughout your progress on Wave 1, you should run the tests from the command line using the `rake` command on a regular basis.
 
 ### Optional:
 Make sure to write tests for any optionals you implement!
@@ -59,7 +60,7 @@ Make sure to write tests for any optionals you implement!
 - Add a `remove_product` method to the `Order` class which will take in one parameter, a product name, and remove the product from the collection
     - It should return `true` if the item was successfully remove and `false` if it was not
 - Create an new `Product` class in your `Grocery` module which will store the information about each product.
-  - Should include attributes like ID, price and quantity
+  - Should include attributes like ID and price
 - Update the `Order` class to utilize objects from the `Product` class instead of the collection that is currently used
 
 ## Wave 2
@@ -103,7 +104,6 @@ The data for the products CSV file consists of:
 | ID             | Integer | A unique identifier for that Product
 | Description | String | The product description
 | Price      | Float  | The product's price
-| Quantity     | Integer  | The product's quantity
 
 To create the relationship between the orders and the products use the `order_products` CSV file. When you use this file, you can ignore the product data in the existing order CSV file. The data for this file, in order in the CSV, consists of:
 
