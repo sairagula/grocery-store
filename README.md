@@ -2,11 +2,10 @@
 
 Let's simulate a grocery store system! We want to be able to keep track of the orders that folks make, both online and physically in our grocery store.
 
-This project will allow you to explore object-oriented design as well as a few other new topics.
+This project will allow you to explore object-oriented design as well as a few other new topics. This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
 
 ## Baseline Setup
 
-1. This is an individual, stage 1 project.
 1. Fork the project master.
 1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
 1. `cd` into the dir created `$ cd grocery-store`
@@ -25,7 +24,7 @@ lib/
 specs/
 ```
 
-Each class you write (there will only be one until wave 3) should get its own file, `lib/class_name.rb`. The specs for that class will be in `specs/class_name_spec.rb`, and you can run all specs using `rake`.
+Each class you write (there will only be one until wave 3) should get its own file, `lib/class_name.rb`. The specs for that class will be in `specs/class_name_spec.rb`, and you can run all specs using the `rake` command from your terminal.
 
 For wave 1, all tests will be given to you - your job is to write code to make them pass. For waves 2 and 3, we supply descriptions of the tests, but you have to write them yourself.
 
@@ -50,8 +49,9 @@ Create an `Order` class which should have the following functionality:
   - summing up the products
   - adding a 7.5% tax
 - An `add_product` method which will take in two parameters, product name and price, and add the data to the product collection
-  - It should return `true` if the item was succesfully added and `false` if it was not
+  - It should return `true` if the item was successfully added and `false` if it was not
 
+Throughout your progress on Wave 1, you should run the tests from the command line using the `rake` command on a regular basis. 
 
 ### Optional:
 Make sure to write tests for any optionals you implement!
