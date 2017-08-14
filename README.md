@@ -169,7 +169,7 @@ Create an `OnlineOrder` class which will inherit behavior from the `Order` class
 
 Each new OnlineOrder should include all attributes from the `Order` class as well as the following **additional** attributes:
 - A customer object
-- A fulfillment status
+- A fulfillment status (stored as a **Symbol**)
   - pending, paid, processing, shipped or complete
 
 It should include the following updated functionality:
@@ -178,7 +178,7 @@ It should include the following updated functionality:
   - Otherwise, it should raise an `ArgumentError` (Google this!)
 
 #### CSV Data File
-The data for the products CSV file consists of:
+The data for the online order CSV file consists of:
 
 | Field          | Type    | Description
 |----------------|---------|------------
