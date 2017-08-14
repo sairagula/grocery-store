@@ -1,7 +1,14 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
-require_relative '../lib/order'
+
+# TODO: uncomment the next line once you start wave 3
+# require_relative '../lib/online_order'
+
+# Because an OnlineOrder is a kind of Order, and we've
+# already tested a bunch of functionality on Order,
+# we effectively get all that testing for free! Here we'll
+# only test things that are different.
 
 xdescribe "OnlineOrder" do
   describe "#initialize" do
@@ -9,7 +16,7 @@ xdescribe "OnlineOrder" do
       # Check that an OnlineOrder is in fact a kind of Order
 
       # Instatiate your OnlineOrder here
-      # online_order = 
+      # online_order =
       # online_order.must_be_kind_of Grocery::Order
     end
 
