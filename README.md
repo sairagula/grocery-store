@@ -75,6 +75,8 @@ Make sure to write tests for any optionals you implement!
   - To try it out, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your `Order` using that data
 - Add the following **class** methods to your existing `Order` class
   - `self.all` - returns a collection of `Order` instances, representing all of the Orders described in the CSV. See below for the CSV file specifications
+    - Determine if the data structure you used in Wave 1 will still work for these new requirements
+    - Note that to parse the product string from the CSV file you will need to use the `split` method
   - `self.find(id)` - returns an instance of `Order` where the value of the id field in the CSV matches the passed parameter.
 
 #### Error Handling
