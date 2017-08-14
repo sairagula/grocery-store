@@ -26,7 +26,6 @@ specs/
 
 Each class you write (there will only be one until wave 3) should get its own file, `lib/class_name.rb`. The specs for that class will be in `specs/class_name_spec.rb`, and you can run all specs using the `rake` command from your terminal.
 
-For wave 1, all tests will be given to you - your job is to write code to make them pass. For waves 2 and 3, we supply descriptions of the tests, but you have to write them yourself.
 
 ## Wave 1
 
@@ -35,6 +34,9 @@ For wave 1, all tests will be given to you - your job is to write code to make t
 - Create **methods** inside the **class** to perform actions
 - Learn how Ruby does error handling
 - Verify code correctness by **testing**
+
+### Testing
+For Wave 1, all tests have been provided for you. For each piece of functionality that you build, you should run the tests from the command line using the `rake` command. To focus on only one test at a time, change all `it` methods to `xit` except for the **one test** you'd like to run. All tests provided should be passing at the end of your work on Wave 1.
 
 ### Requirements
 
@@ -52,7 +54,6 @@ Create an `Order` class which should have the following functionality:
 - An `add_product` method which will take in two parameters, product name and price, and add the data to the product collection
   - It should return `true` if the item was successfully added and `false` if it was not
 
-Throughout your progress on Wave 1, you should run the tests from the command line using the `rake` command on a regular basis.
 
 ### Optional:
 Make sure to write tests for any optionals you implement!
@@ -70,6 +71,9 @@ Make sure to write tests for any optionals you implement!
 - Use a CSV file for loading data
 - Create your own tests to verify method correctness.
 
+### Testing
+You enter Wave 2 with all tests from Wave 1 passing. In Wave 2, you will take the test stubs that have already been provided for you in the `order_spec.rb` file and add the code which will get these tests to pass. You should run the tests regularly alongside the code you are writing in the `Order` class itself.
+
 ### Requirements
 - Update the `Order` class to be able to handle all of the fields from the CSV file used as input
   - To try it out, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your `Order` using that data
@@ -78,6 +82,7 @@ Make sure to write tests for any optionals you implement!
     - Determine if the data structure you used in Wave 1 will still work for these new requirements
     - Note that to parse the product string from the CSV file you will need to use the `split` method
   - `self.find(id)` - returns an instance of `Order` where the value of the id field in the CSV matches the passed parameter.
+
 
 #### Error Handling
 - What should your program do if `Order.find` is called with an ID that doesn't exist?
@@ -121,6 +126,9 @@ This type of table, where records from other tables are associated with each oth
 - Use inheritance to share some behavior across classes
 - Enhance functionality built in Wave 1
 - Add tests for all new classes and inherited functionality
+
+### Testing
+You enter Wave 3 with all of your `Order` tests passing from Waves 1 & 2. In Wave 3 you will take the test stubs that are already written for you and fill in the test code that will get the tests to pass. You will continue running these test alongside the code you write to ensure you are going in the right direction.
 
 ### Requirements
 
