@@ -146,6 +146,11 @@ Each new Customer should include the following attributes:
 - email address
 - delivery address information
 
+- The Customer should also have the following **class** methods:
+  - `self.all` - returns a collection of `Customer` instances, representing all of the Customer described in the CSV. See below for the CSV file specifications
+  - `self.find(id)` - returns an instance of `Customer` where the value of the id field in the CSV matches the passed parameter.
+
+
 #### CSV Data File
 The data for the products CSV file consists of:
 
@@ -162,7 +167,7 @@ The data for the products CSV file consists of:
 #### OnlineOrder
 Create an `OnlineOrder` class which will inherit behavior from the `Order` class.
 
-Each new OnlineOrder should include the following attributes:
+Each new OnlineOrder should include all attributes from the `Order` class as well as the following **additional** attributes:
 - A customer object
 - A fulfillment status
   - pending, paid, processing, shipped or complete
