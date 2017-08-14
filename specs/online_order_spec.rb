@@ -20,7 +20,11 @@ xdescribe "OnlineOrder" do
       # online_order.must_be_kind_of Grocery::Order
     end
 
-    it "Requires a Customer object and status" do
+    it "Can access Customer object" do
+      # TODO: Your test code here!
+    end
+
+    it "Can access the online order status" do
       # TODO: Your test code here!
     end
   end
