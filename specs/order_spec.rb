@@ -11,6 +11,7 @@ describe "Order Wave 1" do
 
       order.must_respond_to :id
       order.id.must_equal id
+      order.id.must_be_kind_of Integer
 
       order.must_respond_to :products
       order.products.length.must_equal 0
