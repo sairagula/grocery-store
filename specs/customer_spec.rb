@@ -17,7 +17,7 @@ xdescribe "Customer" do
       # TODO: Your test code here!
       # Useful checks might include:
       #   - Customer.all returns an array
-      #   - Everything in the array is an Customer
+      #   - Everything in the array is a Customer
       #   - The number of orders is correct
       #   - The ID, email address of the first and last
       #       customer match what's in the CSV file
@@ -26,7 +26,7 @@ xdescribe "Customer" do
   end
 
   describe "Customer.find" do
-    it "Returns an customer that exists" do
+    it "Returns a customer that exists" do
       # TODO: Your test code here!
     end
 
@@ -38,7 +38,7 @@ xdescribe "Customer" do
       # TODO: Your test code here!
     end
 
-    it "Raises an error for an customer that doesn't exist" do
+    it "Raises an error for a customer that doesn't exist" do
       # TODO: Your test code here!
     end
   end
