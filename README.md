@@ -72,7 +72,7 @@ Make sure to write tests for any optionals you implement!
 - Create your own tests to verify method correctness.
 
 ### Testing
-You enter Wave 2 with all tests from Wave 1 passing. In Wave 2, you will take the test stubs that have already been provided for you in the `order_spec.rb` file and add the code which will get these tests to pass. You should run the tests regularly alongside the code you are writing in the `Order` class itself.
+You enter Wave 2 with all tests from Wave 1 passing. In Wave 2, you will fill in the test stubs that have already been provided for you in the `order_spec.rb` file and add the code which will get these tests to pass. You should run the tests regularly alongside the code you are writing in the `Order` class itself.
 
 ### Requirements
 - Update the `Order` class to be able to handle all of the fields from the CSV file used as input
