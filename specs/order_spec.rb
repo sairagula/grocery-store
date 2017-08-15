@@ -59,9 +59,13 @@ describe "Order Wave 1" do
       products = { "banana" => 1.99, "cracker" => 3.00 }
 
       order = Grocery::Order.new(1337, products)
+      before_total = order.total
 
       result = order.add_product("banana", 4.25)
+      after_total = order.total
+
       result.must_equal false
+      before_total.must_equal after_total
     end
 
     it "Returns true if the product is new" do
@@ -90,10 +94,6 @@ xdescribe "Order Wave 2" do
   end
 
   describe "Order.find" do
-    it "Returns an order that exists" do
-      # TODO: Your test code here!
-    end
-
     it "Can find the first order from the CSV" do
       # TODO: Your test code here!
     end

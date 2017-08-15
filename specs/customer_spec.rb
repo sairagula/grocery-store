@@ -26,10 +26,6 @@ xdescribe "Customer" do
   end
 
   describe "Customer.find" do
-    it "Returns a customer that exists" do
-      # TODO: Your test code here!
-    end
-
     it "Can find the first customer from the CSV" do
       # TODO: Your test code here!
     end
