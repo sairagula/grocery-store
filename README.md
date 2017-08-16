@@ -61,17 +61,6 @@ Make sure to write tests for any optionals you implement!
 - Add a `remove_product` method to the `Order` class which will take in one parameter, a product name, and remove the product from the collection
     - It should return `true` if the item was successfully remove and `false` if it was not
 
-**Note that the below optional will significantly change your original implementation so be sure to `add` & `commit` your original version before diving into these changes.**
-- Create an new `Product` class in your `Grocery` module which will store the information about each product.
-  - Should include attributes like ID, name and price
-- Update the `Order` class to utilize objects from the `Product` class instead of the collection that is currently used
-  - Ensure that your `initialize` will still work when your collection is changed
-  - Update your `total` method to retrieve the price from each `Product` object rather than the prior collection
-  - Update the `add_product` method to:
-    - take a single parameter, a `Product` instance rather than the previous two parameters
-    - raise an `ArgumentError` if the parameter is not the correct type
-    - update the logic that determines whether or not the product already exists within the collection to verify with the **ID** of the Product instead of the name.
-
 ## Wave 2
 
 ### Learning Goals
@@ -104,30 +93,6 @@ The data, in order in the CSV, consists of:
 | ID       | Integer  | A unique identifier for that Order
 | Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
 
-### Optional:
-First, implement the optional requirement from Wave 1
-
-Then, add the following **class** methods to your existing `Product` class
-  - `self.all` - returns a collection of `Product` instances, representing all of the Products described in the CSV. See below for the CSV file specifications
-  - `self.find(id)` - returns an instance of `Product` where the value of the id field in the CSV matches the passed parameter
-
-#### CSV Data File
-The data for the products CSV file consists of:
-
-| Field          | Type    | Description
-|----------------|---------|------------
-| ID             | Integer | A unique identifier for that Product
-| Description | String | The product description
-| Price      | Float  | The product's price
-
-To create the relationship between the orders and the products use the `order_products` CSV file. When you use this file, you can ignore the product data in the existing order CSV file. The data for this file, in order in the CSV, consists of:
-
-| Field      | Type    | Description
-|------------|---------|------------
-| Order ID | Integer | A unique identifier corresponding to an Order
-| Product ID   | Integer | A unique identifier corresponding to an Product
-
-This type of table, where records from other tables are associated with each other, is often called a _join table_. We'll talk about them as a class in a few weeks.
 
 ## Wave 3
 ### Learning Goals
@@ -160,7 +125,7 @@ Each new Customer should include the following attributes:
 
 
 #### CSV Data File
-The data for the products CSV file consists of:
+The data for the customer CSV file consists of:
 
 | Field          | Type    | Description
 |----------------|---------|------------
