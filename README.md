@@ -60,9 +60,17 @@ Make sure to write tests for any optionals you implement!
 
 - Add a `remove_product` method to the `Order` class which will take in one parameter, a product name, and remove the product from the collection
     - It should return `true` if the item was successfully remove and `false` if it was not
+
+**Note that the below optional will significantly change your original implementation so be sure to `add` & `commit` your original version before diving into these changes.**
 - Create an new `Product` class in your `Grocery` module which will store the information about each product.
-  - Should include attributes like ID and price
+  - Should include attributes like ID, name and price
 - Update the `Order` class to utilize objects from the `Product` class instead of the collection that is currently used
+  - Ensure that your `initialize` will still work when your collection is changed
+  - Update your `total` method to retrieve the price from each `Product` object rather than the prior collection
+  - Update the `add_product` method to:
+    - take a single parameter, a `Product` instance rather than the previous two parameters
+    - raise an `ArgumentError` if the parameter is not the correct type
+    - update the logic that determines whether or not the product already exists within the collection to verify with the **ID** of the Product instead of the name.
 
 ## Wave 2
 
