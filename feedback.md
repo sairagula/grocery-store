@@ -4,7 +4,7 @@
 |  Feature 	|   Feedback|
 |---	|---	|
 |  **Baseline** |   |
-|   Answer comprehension questions	|   	|
+|   Answered comprehension questions	|   	|
 |   Used Git Regularly	|   	|
 |  **Wave 1** |   |
 |   All provided tests pass | |
