@@ -51,6 +51,7 @@ Create an `Order` class which should have the following functionality:
 - A `total` method which will calculate the total cost of the order by:
   - summing up the products
   - adding a 7.5% tax
+  - ensure the result is rounded to two decimal places
 - An `add_product` method which will take in two parameters, product name and price, and add the data to the product collection
   - It should return `true` if the item was successfully added and `false` if it was not
 
