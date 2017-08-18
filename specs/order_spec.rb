@@ -24,7 +24,7 @@ describe "Order Wave 1" do
       order = Grocery::Order.new(1337, products)
 
       sum = products.values.inject(0, :+)
-      expected_total = sum + (sum * 0.075)
+      expected_total = sum + (sum * 0.075).round(2)
 
       order.total.must_equal expected_total
     end
