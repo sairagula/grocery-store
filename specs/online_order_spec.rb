@@ -4,6 +4,7 @@ require 'minitest/skip_dsl'
 
 # TODO: uncomment the next line once you start wave 3
 # require_relative '../lib/online_order'
+# You may also need to require other classes here
 
 # Because an OnlineOrder is a kind of Order, and we've
 # already tested a bunch of functionality on Order,
@@ -59,6 +60,12 @@ xdescribe "OnlineOrder" do
       #   - The customer is present
       #   - The status is present
       # Feel free to split this into multiple tests if needed
+    end
+  end
+  
+  describe "OnlineOrder.find_by_customer" do
+    it "Returns an array of online orders for a specific customer ID" do
+      # TODO: Your test code here!
     end
   end
 end
