@@ -22,15 +22,21 @@ module Grocery
     end
 
     def add_product(product_name, product_price)
-      product_collection = {}
-      count = product_collection.length
-      unless product_collection.include?(product_name)
-        product_collection[:product_name] = product_price
-        count += 1
+      if !@products.include?(product_name)
+        @products[product_name] = product_price
+        return true
       else
         return false
       end
-      return count
+    end
+
+    def remove_product(product_name)
+      @products.delete(product_name)
+      if !@products.include?(product_name)
+        return true
+      else
+        return false
+      end
     end
   end
 end
