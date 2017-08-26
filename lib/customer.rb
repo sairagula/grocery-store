@@ -12,28 +12,15 @@ module Grocery
     def self.all
       # returns info collected from csv
       customer_data = []
-      CSV.open("../support/customers.csv", "r").each do |data|
+      CSV.open("support/customers.csv", "r").each do |data|
         id = data[0]
         email = data[1]
-        address = data[2]
-        instance_of_a_customer = Customer.new(id, email, unzipped_address(address))
+        address = data[2] + "," + data[3] + "," + data[4] + "," + data[5]# 66255 D'Amore Parkway
+        instance_of_a_customer = Customer.new(id, email, address)
         customer_data << instance_of_a_customer
       end
       return customer_data
     end
-
-    def self.unzipped_address(full_address)
-      hash_address = {}
-      street = full_address[0]
-      hash_address[street] = street
-      city = full_address[1]
-      hash_address[city] = city
-      state = full_address[2].upcase
-      hash_address[state] = state
-      zipcode = full_address[3].to_i
-      hash_address[zipcode] = zipcode
-    end
-
 
     def self.find(id)
       #returns an instance of a customer where his id matches id in the csv
