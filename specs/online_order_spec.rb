@@ -136,10 +136,12 @@ describe "OnlineOrder" do
 
   describe "OnlineOrder.find_by_customer" do
     it "Returns an array of online orders for a specific customer ID" do
-      order = online_order.Grocery::OnlineOrder.find_by_customer(25)
-      expected_order = 1, {"Lobster" => 17.18, "Annatto seed" => 58.38, "Camomile" => 83.21}, 25, :complete)
-      customer.must_equal(
-
+      order = Grocery::OnlineOrder.find_by_customer("25")
+      order.id.must_equal "1"
+      order.customer.id.must_equal "25"
+      expected_products = {"Lobster"=>17.18, "Annatto seed"=>58.38, "Camomile"=>83.21}
+      order.products.must_equal expected_products
+      order.status.must_equal :complete
     end
   end
 end
